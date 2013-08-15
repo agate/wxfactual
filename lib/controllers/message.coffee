@@ -8,18 +8,23 @@ collapseArrayInJson = (input) ->
   return input
 
 module.exports.handle = (req, res) ->
-  data = ''
+  query = req.query
+  if sign.validate(query.signature, query.timestamp, query.nonce)
+    data = ''
 
-  req.setEncoding('UTF-8')
+    req.setEncoding('UTF-8')
 
-  req.on 'data', (chunk) ->
-    data += chunk
+    req.on 'data', (chunk) ->
+      data += chunk
 
-  req.on 'end', ->
-    console.log("------------ POST @ #{new Date()} ------------")
-    console.log(data)
-    console.log("------------------------------------------------------------------------")
+    req.on 'end', ->
+      console.log("------------ POST @ #{new Date()} ------------")
+      console.log(data)
+      console.log("------------------------------------------------------------------------")
 
-    xmlParser.parseString data, (error, result) ->
-      input = collapseArrayInJson(result['xml'])
-      MessageHandler.handle input, res
+      xmlParser.parseString data, (error, result) ->
+        input = collapseArrayInJson(result['xml'])
+        MessageHandler.handle input, res
+  else
+    res.send "ERROR"
+
