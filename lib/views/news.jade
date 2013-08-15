@@ -1,0 +1,33 @@
+xml
+  ToUserName
+    != "<![CDATA["
+    = ToUserName
+    != "]]>"
+  FromUserName
+    != "<![CDATA["
+    = FromUserName
+    != "]]>"
+  CreateTime= parseInt(Date.now() / 1000)
+  MsgType!= "<![CDATA[news]]>"
+  ArticleCount= Articles.length + 1
+  Articles
+    item
+      Title!= "<![CDATA[We found these results for you]]>"
+      Description!= "<![CDATA[]]>"
+      PicUrl!= "<![CDATA[http://www.tu265.com/di-dadd36ba8096166640ffd193ed1d29f5.png]]>"
+      Url!= "<![CDATA[]]>"
+    each Article in Articles
+      item
+        Title
+          != "<![CDATA["
+          = Article.Title
+          != "]]>"
+        Description
+          != "<![CDATA["
+          = Article.Description
+          != "]]>"
+        PicUrl!= "<![CDATA[]]>"
+        Url
+          != "<![CDATA["
+          = Article.Url
+          != "]]>"

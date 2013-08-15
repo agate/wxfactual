@@ -1,0 +1,39 @@
+{
+  "button":[
+    { 
+      "name":"Category",
+      "sub_button": [
+        {
+          "type":"click",
+          "name":"Restaurant",
+          "key":"V1_GEO_RESTAURANT"
+        },
+        {
+          "type":"click",
+          "name":"Sports",
+          "key":"V1_GEO_SPORTS"
+        },
+        {
+          "type":"click",
+          "name":"Hotel",
+          "key":"V1_GEO_HOTEL"
+        },
+        {
+          "type":"click",
+          "name": "Shopping",
+          "key":"V1_GEO_SHOPPING"
+        }
+      ]
+    },
+    {
+      "type":"click",
+      "name":"Help",
+      "key":"V1_HELP"
+    },
+    {
+      "type":"click",
+      "name": "About",
+      "key":"V1_ABOUT"
+    }
+  ]
+}

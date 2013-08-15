@@ -1,0 +1,15 @@
+xml
+  ToUserName
+    != "<![CDATA["
+    = ToUserName
+    != "]]>"
+  FromUserName
+    != "<![CDATA["
+    = FromUserName
+    != "]]>"
+  CreateTime= parseInt(Date.now() / 1000)
+  MsgType!= "<![CDATA[text]]>"
+  Content
+    != "<![CDATA["
+    = Content
+    != "]]>"
